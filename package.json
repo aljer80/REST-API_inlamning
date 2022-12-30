@@ -1,0 +1,24 @@
+{
+  "name": "rest-api_inlamning",
+  "version": "1.0.0",
+  "description": "Inlämningsuppgift",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aljer80/REST-API_inlamning.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aljer80/REST-API_inlamning/issues"
+  },
+  "homepage": "https://github.com/aljer80/REST-API_inlamning#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
