@@ -2,19 +2,25 @@
   {
     "id": 1,
     "side": "forehand",
-    "sex": "male",
-    "level": "intermediate"
-  },
-  {
-    "id": 2,
-    "side": "forehand",
     "gender": "male",
     "level": "advanced"
   },
   {
-    "id": 3,
+    "id": 2,
     "side": "forehand",
     "gender": "female",
     "level": "beginner"
+  },
+  {
+    "id": 5,
+    "side": "backhand",
+    "gender": "female",
+    "level": "advanced"
+  },
+  {
+    "side": "forehand",
+    "gender": "female",
+    "level": "beginner",
+    "id": 4
   }
 ]
