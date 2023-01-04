@@ -3,8 +3,10 @@ const app = express();
 const fs = require("fs"); 
 app.use(express.json());
 
+//const { uuid } = require('uuidv4');               //från Saras kod. För själva id-grejen
+
 // GET-anrop alla spelare
-app.get("/api/players", (req, res) =>{
+app.get("/api/players", (req, res) => {
 
     const data = fs.readFileSync("players.json");
     const players = JSON.parse(data);
@@ -34,7 +36,26 @@ app.post("/api/players", (req, res) => {
         }
     });
 });
+
+/* Ursprungligt POST-anrop
+app.post("/api/players", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
     
+    const player = req.body; 
+    //player.id = uuid();                           //från Saras kod
+    players.push(player);
+    fs.writeFile("players.json", JSON.stringify(players, null, 2), function(err) {
+        if(err){
+            res.status(400).send();
+            }else{
+                res.status(201).json(req.body);
+                
+            }
+    });
+     
+  });
+*/    
 
 //PUT-anrop
 app.put("/api/players/:id", (req, res) => {
@@ -60,9 +81,50 @@ app.put("/api/players/:id", (req, res) => {
     }
 });
 
+/* ursprungligt PUT-anrop
+app.put("/api/players/:id", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
+    const player = req.body;
+    
+    const existingPlayer = players.find(player => player.id === parseInt(req.params.id));
+    existingPlayer.side  = player.side;
+    existingPlayer.gender = player.gender;
+    existingPlayer.level =player.level;
+    
+    fs.writeFile("players.json", JSON.stringify(players, null, 2), function(err) {
+        if(err){
+            res.status(400).send();
+            }else{
+                res.status(200).json(req.body);
+            }
+    });
+});
+*/
 
   //DELETE-anrop
-app.delete("/api/players/:id", (req, res) => {
+  app.delete("/api/players/:id", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
+    const existingPlayer = players.find(player => player.id === parseInt(req.params.id));
+    const index = players.indexOf(existingPlayer);
+
+    if (players.find(player => player.id === parseInt(req.params.id))) {
+    players.splice(index, 1);
+    fs.writeFile("players.json", JSON.stringify(players, null, 2), function(err){
+        if (err) {
+            res.status(500).send();
+        } else {
+            res.status(200).send("Player deleted");
+        }
+    });
+    } else {
+        res.status(404).send('The player with the given ID was not found.');
+    }
+});
+
+/* 
+   app.delete("/api/players/:id", (req, res) => {
     const data = fs.readFileSync("players.json");
     const players = JSON.parse(data);
     const id = req.params.id; 
@@ -80,15 +142,47 @@ app.delete("/api/players/:id", (req, res) => {
         res.status(404).send('The player with the given ID was not found.');
     }
 });
+  */
 
+//GET-anrop för spelare med specifikt id
+app.get("/api/players/:id", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
+    const getPlayerById = players.find(player => player.id === parseInt(req.params.id))
 
-
-//För VG
-  app.get("/api/players/:id", (req, res) => {
-    res.status(200).send("Här är en specifik spelare med id " + req.params.id);
-
+    if(getPlayerById) {
+        res.status(200).send(getPlayerById);
+        } else {
+            res.status(404).send("The player with the given ID was not found.");
+        }
 });
 
-//Api ska svara med 404 om datan saknas
+
+/*För VG
+app.get("/api/players/:id", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
+    const id = req.params.id; 
+    if (id) {
+        res.status(200).send("You requested the player with ID " + req.params.id);
+    }else{
+        res.status(404).send("The player with the given ID was not found.");
+    }
+});
+
+Get.anrop för spelare med specifikt id 
+  app.get("/api/players/:id", (req, res) => {
+    const data = fs.readFileSync("players.json");
+    const players = JSON.parse(data);
+    const getPlayerById = players.find(player => player.id === parseInt(req.params.id));
+
+        if(!getPlayerById){
+            res.status(404).send();
+        }else{
+                res.status(200).send(getPlayerById);
+             }
+    });
+
+*/
 
 app.listen(3000, () => console.log("Server is up and running"));
