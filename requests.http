@@ -13,24 +13,24 @@ content-type: application/json
     }
 
 ###
-PUT http://localhost:3000/api/players/3
+PUT http://localhost:3000/api/players/7
 content-type: application/json
 
     {
-        "id": 5,
+        "id": 3,
         "side": "backhand",
-        "gender": "female",
+        "gender": "male",
         "level": "advanced"
     }
 
 ###
 
-DELETE http://localhost:3000/api/players/4
+DELETE http://localhost:3000/api/players/3
 content-type: application/json
 
 ###
 
-GET http://localhost:3000/api/players/3
+GET http://localhost:3000/api/players/9
 content-type: application/json
 
 ###
