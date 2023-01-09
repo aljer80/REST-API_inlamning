@@ -13,7 +13,7 @@ content-type: application/json
     }
 
 ###
-PUT http://localhost:3000/api/players/5
+PUT http://localhost:3000/api/players/4
 content-type: application/json
 
     {
@@ -25,12 +25,12 @@ content-type: application/json
 
 ###
 
-DELETE http://localhost:3000/api/players/1
+DELETE http://localhost:3000/api/players/3
 content-type: application/json
 
 ###
 
-GET http://localhost:3000/api/players/4
+GET http://localhost:3000/api/players/3
 content-type: application/json
 
 ###
