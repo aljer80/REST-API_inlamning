@@ -2,7 +2,6 @@ function renderData(data){
     let span = document.getElementById("span");
     span.innerText = null;
 // visar input i en container på webbsidan 
-    //span.innerText = data; 
     data.forEach(player => {
         span.innerText = span.innerText + "Player id: " + player.id + "\r\n";
         span.innerText = span.innerText + " Side: " + player.side + "\r\n";
@@ -54,25 +53,19 @@ function apiPost() {
         res.on("data", d => {
         renderData(d);
         });
+       //res.end();
     }); 
+    //req.end();
 }
 
 
 function apiPut() {
     req.path = req.path + "/" + id;
 
-    
 }
 
 
 function apiDelete() {
-    fetch("http://localhost:3000/api/players/2")
-    .then((response) => response.json())
-    .then((data) => {
-        renderData();    
-    })
-    .catch(function (err) {
-        renderData(); 
-    });
+    
 }
  
