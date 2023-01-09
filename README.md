@@ -1,8 +1,8 @@
 # REST-API_inlamning
 
 Titel:Player-API <br>
-Beskrivning:Ett API som kan användas till padel. Det har CRUD-funktionalitet så man kan skapa spelare, hämta en eller alla spelare, uppdatera spelare och ta bort spelare. Man kan inte skriva över till redan existerande id. <br>
-<br>
+Beskrivning:Ett API som kan användas till padel. Det har CRUD-funktionalitet så man kan skapa spelare, hämta en eller alla spelare, uppdatera spelare och ta bort spelare. <br>
+
 Krav som är uppfyllda: <br>
 Projektet innehåller 1 endpoint som svarar på fyra metoder: GET, POST, PUT & DELETE. Endpointen kan nås via min requests.http_fil. <br>
 All data är sparad i en JSON-fil. Datan i JSON-filen uppdateras då något läggs till, uppdateras eller tas bort. <br>
@@ -13,8 +13,7 @@ Uppgiften har lämnats in i tid. <br>
 
 Krav för väl godkänt:<br>
 Finns ytterligare en GET endpoint där det går att hämta ett specifikt objekt. <br>
-Ett klient-gränssnitt för att anropa API:ets alla olika endpoints och presentera datan har byggts, <br> 
-men tyvärr får jag inte tag i inputen från mitt formulär på rätt sätt, blir undefined. 
+Ett klient-gränssnitt för att anropa API:ets alla olika endpoints och presentera datan har byggts, men POST och PUT har problem att assigna värden via klient-gränssittet.  <br>
 
 
 Info om hur projektet byggs och körs:<br>
