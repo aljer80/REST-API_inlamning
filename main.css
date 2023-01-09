@@ -1,0 +1,61 @@
+:root {
+    width: 100vw;
+    height: 100vh;
+    --minpadding:0.5vmax;
+    /* --hcahighlight:#652C90; */
+    --hcabackground:linear-gradient(to bottom left,#f4fcb6,#dcb8f2,#cef2b8); 
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: var(--hcabackground);
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly; /* X-axis */
+    align-content: stretch; /* Y-axis */
+    align-items: baseline; /* Y-axis within line */ 
+    flex-flow: column nowrap;
+}
+
+form{
+    display: flex;
+    justify-content: space-evenly; /* X-axis */
+    align-content: center; /* Y-axis */
+    align-items: stretch; /* Y-axis within line */ 
+    flex-flow: row nowrap;
+    padding: var(--minpadding);
+}
+
+#data{
+    display: flex;
+    justify-content: space-evenly; /* X-axis */
+    align-content: stretch; /* Y-axis */
+    align-items: baseline; /* Y-axis within line */ 
+    flex-flow: row wrap;
+    border:ridge 3px rgb(106, 8, 8);
+    order: 2;
+}
+
+#anrop{
+    display: flex;
+    justify-content: space-around; /* X-axis */
+    align-content: space-around; /* Y-axis */
+    align-items: space-between; /* Y-axis within line */ 
+    flex-flow: column nowrap;
+}
+
+/*fieldset:nth-child(even){
+    background:lilac
+} */
+
+#anrop input{
+    margin: var(--minpadding);
+}

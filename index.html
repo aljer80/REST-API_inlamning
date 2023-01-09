@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REST API</title>
+    <link rel="stylesheet" href="main.css">
+    
+    <script src="server.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header></header>
+    <main>
+        <form>
+            <fieldset id="data">
+                <legend>Data</legend>
+                <input type="number" id="id" placeholder="id">
+                <select id="side" name="side" title="Preferred side">
+                    <option value="forehand">Forehand</option>
+                    <option value="backhand">Backhand</option>
+                </select>            
+                <select id="gender" name="gender" title="Choose your CIS-gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <select id="level" name="level" title="Level">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate" selected>Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>  
+            </fieldset>
+            <fieldset id="anrop">
+                <legend>Anrop</legend>
+                <input type="button" value="GET" onclick="apiGet()">
+                <input type="button" value="POST" onclick="apiPost()">
+                <input type="button" value="PUT" onclick="apiPut()">
+                <input type="button" value="DELETE" onclick="apiDelete()">
+            </fieldset>
+        </form>
+        <span id="span">
+        </span>
+    </main>
+    <footer></footer>
+</body>
+</html>

@@ -1,8 +1,20 @@
 [
   {
-    "id": 5,
     "side": "backhand",
     "gender": "female",
-    "level": "advanced"
+    "level": "advanced",
+    "id": 1
+  },
+  {
+    "side": "forehand",
+    "gender": "female",
+    "level": "beginner",
+    "id": 2
+  },
+  {
+    "side": "forehand",
+    "gender": "female",
+    "level": "beginner",
+    "id": 3
   }
 ]
