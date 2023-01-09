@@ -2,9 +2,23 @@
 
 Inlämningsuppgift
 
-Titel:
-Beskrivning:
-Krav som är uppfyllda:
+Titel:Player-API
+Beskrivning:Ett API som kan användas till padel. Det har CRUD-funktionalitet så man kan skapa spelare, hämta en eller alla spelare, uppdatera spelare och ta bort spelare. Man kan inte skriva över till redan existerande id. 
+
+Krav som är uppfyllda: 
+Projektet innehåller 1 endpoint som svarar på fyra metoder: GET, POST, PUT & DELETE. Endpointen kan nås via min requests.http_fil. 
+All data är sparad i en JSON-fil. Datan i JSON-filen uppdateras då något läggs till, uppdateras eller tas bort. 
+APIét svarar med 404 om datan saknas. 
+Git & GitHub har använts. 
+Projektmappen innehåller en README.md fil.
+Uppgiften har lämnats in i tid. 
+
+Krav för väl godkänt:
+Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt. 
+
+
+Alla punkter för godkänt är uppfyllda Ett klient-gränssnitt skall byggas för att anropa API:ets alla olika endpoints och presentera datan, redigeringsformulär skall fyllas i med befintlig information. Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
+
 Info om hur projektet byggs och körs:
 
 Inlämningsuppgift REST-API
@@ -21,7 +35,7 @@ För att bli godkänd på den här uppgiften MÅSTE du använda GIT och GitHub. 
 
 Krav för godkänt:
 
-Projektet innehåller minst 4 st. endpoints (GET, POST, PUT & DELETE för en resurs) Samtliga endpoints skall kunna nås via en REST Client fil (.rest|.http) All data skall vara sparad i en JSON-fil Datan i JSON-filen skall uppdateras då något läggs till, uppdateras eller tas bort APIét ska svara med 404 om datan saknas. Git & GitHub har använts Projektmappen innehåller en README.md fil - (läs ovan för mer info) Uppgiften lämnas in i tid! Krav för väl godkänt:
+Krav för väl godkänt:
 
 Alla punkter för godkänt är uppfyllda Ett klient-gränssnitt skall byggas för att anropa API:ets alla olika endpoints och presentera datan, redigeringsformulär skall fyllas i med befintlig information. Ytterligare en GET endpoint skall läggas till där det går att hämta ett specifikt objekt
 
