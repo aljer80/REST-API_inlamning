@@ -8,7 +8,13 @@ function renderData(data){
         span.innerText = span.innerText + " Gender: " + player.gender + "\r\n";
         span.innerText = span.innerText + " Level: " + player.level + "\r\n";
     });
-    
+}
+
+function displayMessages(message) {
+    let span = document.getElementById("span");
+    span.innerText = null;
+    span.innerText = message;   //skriver ut en sträng
+    //används till put, delete, post och felmeddelanden
 }
 
 async function apiGet() {
@@ -25,47 +31,73 @@ async function apiGet() {
             renderData(data);
         }
     } catch (error) {
-        renderData(error);  
+        displayMessages(error);  
     }
 }
 
-
+//the function for post
 function apiPost() {
-    let https = require('https');
-    let req = {
-        hostname: 'localhost',
-        port: 3000,
-        path: '/api/players'
-    }; 
-
-    let side = document.getElementById("side");
+    //picking up and creating the "profile" to pass to the promise
     let gender = document.getElementById("gender");
+    let side = document.getElementById("side");
     let level = document.getElementById("level");
 
-    req.method = "POST";
-    req.body = {
-        "side": side,
-        "gender":gender,
-        "level" :level
-    } 
-
-    req = https.request(req, res => {
-        res.on("data", d => {
-        renderData(d);
-        });
-       //res.end();
-    }); 
-    //req.end();
+    profile = {
+        "gender":gender.options[gender.selectedIndex].innerText,
+        "side" :side.value,
+        "level":level.value
+    }
+console.log(gender.options[gender.selectedIndex])
+    //creating internal data
+    const formData = new FormData();
+    //formData.append('id', profile.id);
+    formData.append('gender', profile.gender);
+    formData.append('side', profile.side);
+    formData.append('level', profile.level);
+    
+    return fetch('http://localhost:3000/api/players', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json());
 }
 
 
 function apiPut() {
-    req.path = req.path + "/" + id;
+    //picking up and creating the "profile" to pass to the promise
+    let gender = document.getElementById("gender");
+    let side = document.getElementById("side");
+    let level = document.getElementById("level");
 
-}
+    profile = {
+        //samma id som i delete behövs här
+        "gender":gender.options[gender.selectedIndex].innerText,
+        "side" :side.value,
+        "level":level.value
+    }
+console.log(gender.options[gender.selectedIndex])
+    //creating internal data
+    const formData = new FormData();
+    //formData.append('id', profile.id);
+    formData.append('gender', profile.gender);
+    formData.append('side', profile.side);
+    formData.append('level', profile.level);
+    
+    return fetch('http://localhost:3000/api/players', {
+        method: 'PUT',
+        body: formData
+    }).then(response => response.json());
+
+}   
 
 
 function apiDelete() {
+    //picking up and creating the "profile" to pass to the promise
+    let id = document.getElementById("id");
     
-}
+    return fetch('http://localhost:3000/api/players/' + id, {
+        method: 'DELETE'
+    }).then(response => response.json());
+
+}    
+
  

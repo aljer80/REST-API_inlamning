@@ -76,9 +76,6 @@ app.put("/api/players/:id", (req, res) => {
 //exists = players.find(player => player.id === parseInt(req.body.id)); 
 
 //DELETE-anrop
-//Hur hittar vi index? och varför hittar inte index rätt spelare? 
-
-
 app.delete("/api/players/:id", (req, res) => {
     
     let players = JSON.parse(data);
@@ -99,33 +96,6 @@ app.delete("/api/players/:id", (req, res) => {
     }
 });
   
-
-//gör en funktion som hittar index. den kan ta emot en variabel som tar emot arrayen. 
-//arr.findIndex
-/* 
-
-    let data = fs.readFileSync("players.json");
-    let players = JSON.parse(data);
-    let player = req.body;    //kommer från frontEnd
-    index = players.findIndex(player => player.id === parseInt(req.params.id));
-    
-    else {
-        players[index] = player;
-        fs.writeFile("players.json", JSON.stringify(players, null, 2), function(err){
-            if (err) {
-                res.set('Access-Control-Allow-Origin', '*');
-                res.status(500).send();
-            } else {
-                res.set('Access-Control-Allow-Origin', '*');
-                res.status(200).send("Jag har lyckats, grattis!"); //när du gör en put får du tillbaka
-                //res.status(200).send(players[index]); //när du gör en put får du tillbaka ändringen, så som den står i databasen
-            }
-        });
-
-
-*/
-    
-
 
 //GET-anrop för spelare med specifikt id
 app.get("/api/players/:id", (req, res) => {

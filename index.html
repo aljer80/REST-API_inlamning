@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>REST API</title>
     <link rel="stylesheet" href="main.css">
-    
     <script src="server.js" defer></script>
     <script src="script.js" defer></script>
 </head>
@@ -21,7 +20,7 @@
                 </select>            
                 <select id="gender" name="gender" title="Choose your CIS-gender">
                     <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="female" selected>Female</option>
                 </select>
                 <select id="level" name="level" title="Level">
                     <option value="beginner">Beginner</option>
@@ -32,9 +31,27 @@
             <fieldset id="anrop">
                 <legend>Anrop</legend>
                 <input type="button" value="GET" onclick="apiGet()">
-                <input type="button" value="POST" onclick="apiPost()">
-                <input type="button" value="PUT" onclick="apiPut()">
-                <input type="button" value="DELETE" onclick="apiDelete()">
+                <input type="button" value="POST" onclick="apiPost()
+                .then((json) => {
+                 displayMessages(json);
+                 })
+                .catch(error => {
+                 displayMessages(error);
+                });">
+                <input type="button" value="PUT" onclick="apiPut()
+                .then((json) => {
+                 displayMessages(json);
+                 })
+                .catch(error => {
+                 displayMessages(error);
+                });">
+                <input type="button" value="DELETE" onclick="apiDelete()
+                .then((json) => {
+                 displayMessages(json);
+                 })
+                .catch(error => {
+                 displayMessages(error);
+                });">
             </fieldset>
         </form>
         <span id="span">
