@@ -3,6 +3,8 @@ let app = express();
 let fs = require("fs"); 
 app.use(express.json());
 
+app.use(express.static("public"));
+
 const data = fs.readFileSync("players.json");
 
 // GET-anrop alla spelare
