@@ -48,7 +48,7 @@ function apiPost() {
         level: level.value
     }
 
-/*console.log(gender.options[gender.selectedIndex])
+/*
     //creating internal data
     const formData = new FormData();
     //formData.append('id', profile.id);
@@ -72,24 +72,33 @@ function apiPut() {
     let side = document.getElementById("side");
     let level = document.getElementById("level");
 
-    profile = {
-        //samma id som i delete behövs här
-        "gender":gender.options[gender.selectedIndex].innerText,
-        "side" :side.value,
-        "level":level.value
+    const profile = {
+        gender: gender.value,
+        side: side.value,
+        level: level.value
     }
-console.log(gender.options[gender.selectedIndex])
-    //creating internal data
+   
+    return fetch('http://localhost:3000/api/players', {
+        method: 'PUT',
+        body: JSON.stringify(profile), 
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(response => response.json());
+
+
+    /*
     const formData = new FormData();
-    //formData.append('id', profile.id);
+    formData.append('id', profile.id);
     formData.append('gender', profile.gender);
     formData.append('side', profile.side);
     formData.append('level', profile.level);
-    
+
     return fetch('http://localhost:3000/api/players', {
         method: 'PUT',
-        body: formData
+        body: JSON.stringify(formData), 
     }).then(response => response.json());
+    */
 
 }   
 
@@ -97,7 +106,14 @@ console.log(gender.options[gender.selectedIndex])
 function apiDelete() {
     let id = document.getElementById("id");
 
-    formData.append('id', profile.id);
+    const profile = {
+        id: id.value,
+        gender: gender.value,
+        side: side.value,
+        level: level.value
+    }
+
+    formData.append("id", profile.id);
     
     return fetch('http://localhost:3000/api/players/' + id, {
         method: 'DELETE'
