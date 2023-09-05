@@ -18,13 +18,13 @@ Ett klient-gränssnitt för att anropa API:ets alla olika endpoints och presente
 
 Info om hur projektet byggs och körs:<br>
 	1. Klona ner projektet från Git (kopiera repots URL och följ instruktionerna: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) <br>
-  2. Installera Express (skriv "npm istall Express" i terminalen).<br>
+  2. Installera Express (skriv "npm install Express" i terminalen).<br>
 	3. Starta servern (skriv "npm start" i terminalen). <br>
   Nu är du igång! <br>
   Du behöver inte installera något paket för att avhjälpa CORS-problem, finns kod för det där det behövs. <br> 
   <br>
   
-  Detta API har stöd för CRUP. I detta API kan du:<br>
+  Detta API har stöd för CRUD. I detta API kan du:<br>
   Skapa spelare,   <br>
   hämta alla spelare, eller  <br>
   hämta en specifik spelare,   <br>
